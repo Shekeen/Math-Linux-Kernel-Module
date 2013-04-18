@@ -1,0 +1,8 @@
+math_ctl
+modules.order
+Module.symvers
+math.mod.c
+*.ko
+*.o
+.tmp_versions/
+*.cmd
