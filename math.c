@@ -28,13 +28,15 @@ static struct file_operations fops = {
 
 static int math_init(void)
 {
-  int err = register_chrdev(MAJOR_NUMBER, DEVICE_NAME, &fops);
+  int err;
+
+  atomic_set(&user_num, MAX_USERS);
+
+  err = register_chrdev(MAJOR_NUMBER, DEVICE_NAME, &fops);
   if (err < 0) {
     pr_err("Device registration failed\n");
     return err;
   }
-
-  atomic_set(&user_num, MAX_USERS);
 
   pr_info("Module \"math\" was loaded\n");
   pr_info("Run \"mknod /dev/math c 77 0\"\n");
