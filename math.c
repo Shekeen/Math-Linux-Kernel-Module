@@ -75,7 +75,7 @@ static long math_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 {
   int first_op, second_op, result;
   long long first_op_l, second_op_l, result_l;
-  int __user *arg_ptr = (int*)arg;
+  int __user *arg_ptr = (int __user *)arg;
   int err;
 
   switch(cmd) {
